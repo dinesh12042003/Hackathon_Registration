@@ -1,0 +1,1395 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🚀 TIIC Hackathon 2025 – Team Registration</title>
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #4361ee;
+            --primary-light: #4895ef;
+            --primary-dark: #3a0ca3;
+            --secondary-color: #f72585;
+            --accent-color: #4cc9f0;
+            --text-dark: #212121;
+            --text-medium: #424242;
+            --text-light: #757575;
+            --background-light: #f8f9fa;
+            --border-color: #e0e0e0;
+            --success-color: #4caf50;
+            --error-color: #f44336;
+            --warning-color: #ff9800;
+            --card-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background-color: var(--background-light);
+            color: var(--text-dark);
+            line-height: 1.6;
+            background-image: url('https://images.unsplash.com/photo-1516321318423-f06f85e504b3?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-attachment: fixed;
+            background-position: center;
+            background-blend-mode: overlay;
+            background-color: rgba(248, 249, 250, 0.9);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--primary-dark), var(--primary-color));
+            color: white;
+            padding: 5rem 0;
+            text-align: center;
+            margin-bottom: 3rem;
+            position: relative;
+            overflow: hidden;
+            clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiPjxkZWZzPjxwYXR0ZXJuIGlkPSJwYXR0ZXJuIiB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHBhdHRlcm5Vbml0cz0idXNlclNwYWNlT25Vc2UiIHBhdHRlcm5UcmFuc2Zvcm09InJvdGF0ZSg0NSkiPjxyZWN0IHdpZHRoPSIyMCIgaGVpZ2h0PSIyMCIgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjA1KSIvPjwvcGF0dGVybj48L2RlZnM+PHJlY3QgZmlsbD0idXJsKCNwYXR0ZXJuKSIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIvPjwvc3ZnPg==');
+            opacity: 0.3;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+            font-family: 'Montserrat', sans-serif;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+            animation: fadeInUp 0.8s ease;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin: 0 auto 2rem;
+            animation: fadeInUp 0.8s ease 0.2s forwards;
+            opacity: 0;
+        }
+
+        .highlight {
+            display: inline-block;
+            background-color: rgba(255, 255, 255, 0.2);
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            margin: 0.3rem 0;
+            font-weight: 500;
+            animation: pulse 2s infinite;
+        }
+
+        /* Form Container */
+        .form-container {
+            max-width: 900px;
+            margin: 0 auto 5rem;
+            padding: 3rem;
+            background: white;
+            border-radius: 15px;
+            box-shadow: var(--card-shadow);
+            transform: translateY(-50px);
+            position: relative;
+            z-index: 10;
+            animation: fadeInUp 0.8s ease 0.4s forwards;
+            opacity: 0;
+        }
+
+        /* Step Navigation */
+        .step-navigation {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .step-navigation:before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: var(--border-color);
+            z-index: 1;
+            transform: translateY(-50%);
+        }
+
+        .step-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: var(--border-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 1.5rem;
+            position: relative;
+            z-index: 2;
+            cursor: pointer;
+            transition: var(--transition);
+            border: 4px solid white;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        }
+
+        .step-icon i {
+            font-size: 1.5rem;
+            color: var(--text-light);
+            transition: var(--transition);
+        }
+
+        .step-icon.active {
+            background: var(--primary-color);
+            transform: scale(1.1) translateY(-5px);
+            box-shadow: 0 5px 15px rgba(67, 97, 238, 0.3);
+        }
+
+        .step-icon.active i {
+            color: white;
+        }
+
+        .step-icon.completed {
+            background: var(--success-color);
+            box-shadow: 0 5px 15px rgba(76, 175, 80, 0.3);
+        }
+
+        .step-icon.completed i {
+            color: white;
+        }
+
+        /* Form Steps */
+        .form-step {
+            display: none;
+            animation: fadeIn 0.6s ease;
+        }
+
+        .form-step.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        /* Form Fields */
+        fieldset {
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 2.5rem;
+            margin-bottom: 2.5rem;
+            transition: var(--transition);
+        }
+
+        fieldset:hover {
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+
+        legend {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--primary-color);
+            padding: 0 1.5rem;
+            width: auto;
+            font-family: 'Montserrat', sans-serif;
+            letter-spacing: -0.5px;
+        }
+
+        .form-group {
+            margin-bottom: 2rem;
+            position: relative;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.8rem;
+            font-weight: 500;
+            color: var(--text-medium);
+            font-size: 1.05rem;
+        }
+
+        .form-group .description {
+            font-size: 0.85rem;
+            color: var(--text-light);
+            margin-top: 0.5rem;
+            line-height: 1.5;
+        }
+
+        .form-group input[type="text"],
+        .form-group input[type="number"],
+        .form-group input[type="email"],
+        .form-group input[type="tel"],
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 1rem;
+            border: 2px solid var(--border-color);
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: var(--transition);
+            background-color: #fcfcfc;
+        }
+
+        .form-group input[type="text"]:focus,
+        .form-group input[type="number"]:focus,
+        .form-group input[type="email"]:focus,
+        .form-group input[type="tel"]:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            border-color: var(--primary-color);
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(67, 97, 238, 0.2);
+            background-color: white;
+        }
+
+        .form-group textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        .form-group input[type="file"] {
+            padding: 1rem;
+            border: 2px dashed var(--border-color);
+            border-radius: 8px;
+            width: 100%;
+            background-color: #fcfcfc;
+            transition: var(--transition);
+        }
+
+        .form-group input[type="file"]:hover {
+            border-color: var(--primary-color);
+            background-color: rgba(67, 97, 238, 0.05);
+        }
+
+        /* Member Sections */
+        .member-section {
+            margin-bottom: 2.5rem;
+            padding: 2rem;
+            background-color: rgba(248, 249, 250, 0.7);
+            border-radius: 10px;
+            border: 1px solid var(--border-color);
+            transition: var(--transition);
+        }
+
+        .member-section:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+
+        .member-section h3 {
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+            font-size: 1.3rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+        }
+
+        .member-section h3 i {
+            margin-right: 0.8rem;
+            font-size: 1.2rem;
+        }
+
+        /* Payment QR Section */
+        .payment-qr {
+            text-align: center;
+            margin: 3rem 0;
+            padding: 2.5rem;
+            background-color: #f9f9f9;
+            border-radius: 12px;
+            border: 2px dashed var(--primary-light);
+            transition: var(--transition);
+        }
+
+        .payment-qr:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(67, 97, 238, 0.1);
+        }
+
+        .payment-qr h3 {
+            color: var(--primary-dark);
+            margin-bottom: 1.5rem;
+            font-size: 1.4rem;
+            font-weight: 600;
+        }
+
+        .payment-qr img {
+            max-width: 280px;
+            height: auto;
+            margin: 1.5rem auto;
+            display: block;
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: var(--transition);
+        }
+
+        .payment-qr img:hover {
+            transform: scale(1.03);
+        }
+
+        .payment-amount {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: var(--primary-dark);
+            margin: 1.5rem 0;
+            background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            display: inline-block;
+        }
+
+        /* Form Navigation Buttons */
+        .form-navigation {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 3rem;
+        }
+
+        .form-navigation button {
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 150px;
+        }
+
+        .form-navigation button i {
+            margin-right: 0.5rem;
+            font-size: 1.2rem;
+        }
+
+        .form-navigation .prev-btn {
+            background: var(--border-color);
+            color: var(--text-medium);
+        }
+
+        .form-navigation .prev-btn:hover {
+            background: #d1d1d1;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+        }
+
+        .form-navigation .next-btn,
+        .form-navigation .submit-btn {
+            background: var(--primary-color);
+            color: white;
+            box-shadow: 0 4px 10px rgba(67, 97, 238, 0.3);
+        }
+
+        .form-navigation .next-btn:hover,
+        .form-navigation .submit-btn:hover {
+            background: var(--primary-dark);
+            transform: translateY(-3px);
+            box-shadow: 0 7px 15px rgba(67, 97, 238, 0.4);
+        }
+
+        .form-navigation button:disabled {
+            background: var(--border-color);
+            color: #9e9e9e;
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
+        }
+
+        /* Success Screen */
+        .success-screen {
+            display: none;
+            text-align: center;
+            padding: 3rem 2rem;
+            animation: fadeIn 0.6s ease;
+        }
+
+        .success-screen.active {
+            display: block;
+        }
+
+        .success-screen i {
+            font-size: 5rem;
+            color: var(--success-color);
+            margin-bottom: 2rem;
+            animation: bounce 1s ease infinite alternate;
+        }
+
+        .success-screen h2 {
+            color: var(--primary-dark);
+            margin-bottom: 1.5rem;
+            font-size: 2.2rem;
+            font-weight: 700;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .success-screen p {
+            font-size: 1.1rem;
+            max-width: 700px;
+            margin: 0 auto 2rem;
+            color: var(--text-medium);
+        }
+
+        .submission-message {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            margin: 3rem auto;
+            color: var(--text-medium);
+            border-left: 5px solid var(--primary-color);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            max-width: 700px;
+            text-align: left;
+        }
+
+        .submission-message p {
+            margin-bottom: 1.2rem;
+            line-height: 1.7;
+            position: relative;
+            padding-left: 1.5rem;
+        }
+
+        .submission-message p:before {
+            content: '•';
+            color: var(--primary-color);
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+
+        .submission-message p:last-child {
+            margin-bottom: 0;
+        }
+
+        .submission-message strong {
+            color: var(--primary-dark);
+            font-weight: 600;
+        }
+
+        /* Status Messages */
+        #status {
+            margin: 1.5rem 0;
+            padding: 1.2rem;
+            border-radius: 8px;
+            text-align: center;
+            font-weight: 500;
+        }
+
+        .success-message {
+            background: #e8f5e9;
+            color: #2e7d32;
+            border-left: 4px solid var(--success-color);
+        }
+
+        .error-message {
+            background: #ffebee;
+            color: #c62828;
+            border-left: 4px solid var(--error-color);
+        }
+
+        /* Loading Animation */
+        .loading-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(255, 255, 255, 0.9);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            backdrop-filter: blur(5px);
+        }
+
+        .loading-content {
+            text-align: center;
+            background: white;
+            padding: 3rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+            max-width: 400px;
+            width: 90%;
+        }
+
+        .spinner {
+            width: 60px;
+            height: 60px;
+            border: 5px solid #f3f3f3;
+            border-top: 5px solid var(--primary-color);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 1.5rem;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        @keyframes bounce {
+            from { transform: translateY(0); }
+            to { transform: translateY(-15px); }
+        }
+
+        /* Custom Checkbox */
+        .checkbox-group {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 1.2rem;
+        }
+
+        .checkbox-group input[type="checkbox"] {
+            margin-right: 1rem;
+            width: 20px;
+            height: 20px;
+            min-width: 20px;
+            appearance: none;
+            border: 2px solid var(--border-color);
+            border-radius: 5px;
+            cursor: pointer;
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .checkbox-group input[type="checkbox"]:checked {
+            background-color: var(--primary-color);
+            border-color: var(--primary-color);
+        }
+
+        .checkbox-group input[type="checkbox"]:checked:after {
+            content: '\2713';
+            position: absolute;
+            color: white;
+            font-size: 14px;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .checkbox-group label {
+            margin-bottom: 0;
+            font-weight: 400;
+            line-height: 1.6;
+            cursor: pointer;
+            user-select: none;
+        }
+
+        /* Confirmation Section */
+        .confirmation-section {
+            margin-top: 3rem;
+            padding: 2.5rem;
+            background-color: white;
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+
+        .confirmation-section h3 {
+            color: var(--primary-dark);
+            margin-bottom: 1.5rem;
+            font-size: 1.5rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+        }
+
+        .confirmation-section h3 i {
+            margin-right: 1rem;
+            color: var(--primary-color);
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            .hero {
+                padding: 4rem 0;
+                clip-path: polygon(0 0, 100% 0, 100% 95%, 0 100%);
+            }
+            
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .hero p {
+                font-size: 1.1rem;
+            }
+            
+            .form-container {
+                padding: 2rem;
+                margin-bottom: 3rem;
+            }
+            
+            fieldset {
+                padding: 1.5rem;
+            }
+            
+            .step-icon {
+                width: 50px;
+                height: 50px;
+                margin: 0 0.8rem;
+            }
+            
+            .step-icon i {
+                font-size: 1.2rem;
+            }
+            
+            .member-section,
+            .confirmation-section {
+                padding: 1.5rem;
+            }
+            
+            .payment-qr {
+                padding: 1.5rem;
+            }
+            
+            .payment-qr img {
+                max-width: 220px;
+            }
+            
+            .form-navigation {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .form-navigation button {
+                width: 100%;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero {
+                padding: 3rem 0;
+            }
+            
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            
+            .form-container {
+                padding: 1.5rem;
+            }
+            
+            .step-icon {
+                width: 40px;
+                height: 40px;
+                margin: 0 0.5rem;
+            }
+            
+            legend {
+                font-size: 1.3rem;
+            }
+            
+            .payment-amount {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>🚀 TIIC Hackathon 2025</h1>
+                <p>Unleash your innovation at the biggest student hackathon in India!</p>
+                <div class="highlight">Team Registration Portal</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Form Container -->
+    <div class="container">
+        <div class="form-container">
+            <!-- Step Navigation -->
+            <div class="step-navigation">
+                <div class="step-icon active" data-step="1" title="Event Details">
+                    <i class="bi bi-info-circle"></i>
+                </div>
+                <div class="step-icon" data-step="2" title="Team Details">
+                    <i class="bi bi-people"></i>
+                </div>
+                <div class="step-icon" data-step="3" title="Team Members">
+                    <i class="bi bi-person-vcard"></i>
+                </div>
+                <div class="step-icon" data-step="4" title="Payment">
+                    <i class="bi bi-credit-card"></i>
+                </div>
+                <div class="step-icon" data-step="5" title="Confirmation">
+                    <i class="bi bi-check-circle"></i>
+                </div>
+            </div>
+
+            <!-- Form Steps -->
+            <form id="hackathonForm">
+                <!-- Step 1: Event Details -->
+                <div id="step-1" class="form-step active">
+                    <div class="submission-message">
+                        <p><strong>Welcome to TIIC Hackathon 2025!</strong> We're thrilled you're joining India's most exciting student innovation challenge.</p>
+                        <p>This year's theme: <strong>"Sustainable Innovation for India's Future"</strong>. Teams will tackle real-world problems across healthcare, education, agriculture, and smart cities.</p>
+                        <p>📍 <strong>Location:</strong> Your college campus (phase 1) | Hyderabad finals</p>
+                        <p>📅 <strong>Dates:</strong> October 15-17, 2025</p>
+                        <p>💰 <strong>Registration Fee:</strong> ₹200 per team member (covers participation kit, meals, and resources)</p>
+                        <p>🏆 <strong>Prizes:</strong> Incubation support, internships, cash prizes totaling ₹5 lakhs!</p>
+                    </div>
+                    
+                    <div class="form-navigation">
+                        <button type="button" class="prev-btn" disabled>
+                            <i class="bi bi-arrow-left"></i> Previous
+                        </button>
+                        <button type="button" class="next-btn">
+                            Continue to Registration <i class="bi bi-arrow-right"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Step 2: Team Details -->
+                <div id="step-2" class="form-step">
+                    <fieldset>
+                        <legend>Team Details</legend>
+                        <div class="form-group">
+                            <label for="teamName">Team Name</label>
+                            <input type="text" id="teamName" name="teamName" placeholder="Enter your team's unique name" required>
+                            <div class="description">Be creative! This name will represent you throughout the competition.</div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="teamSize">Number of Team Members</label>
+                            <select id="teamSize" name="teamSize" required>
+                                <option value="" disabled selected>Select team size</option>
+                                <option value="2">2 Members (₹400)</option>
+                                <option value="3">3 Members (₹600)</option>
+                                <option value="4">4 Members (₹800)</option>
+                                <option value="5">5 Members (₹1000)</option>
+                            </select>
+                            <div class="description">Teams must have 2-5 members. The team leader will be our primary contact.</div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="teamLeaderName">Team Leader Full Name</label>
+                            <input type="text" id="teamLeaderName" name="teamLeaderName" placeholder="Team leader's full name" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="teamLeaderEmail">Team Leader Email ID</label>
+                            <input type="email" id="teamLeaderEmail" name="teamLeaderEmail" placeholder="Official email address" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="teamLeaderPhone">Team Leader WhatsApp Number</label>
+                            <input type="tel" id="teamLeaderPhone" name="teamLeaderPhone" placeholder="With country code if international" required>
+                            <div class="description">All important updates will be sent via WhatsApp</div>
+                        </div>
+                    </fieldset>
+                    
+                    <div class="form-navigation">
+                        <button type="button" class="prev-btn">
+                            <i class="bi bi-arrow-left"></i> Previous
+                        </button>
+                        <button type="button" class="next-btn">
+                            Next <i class="bi bi-arrow-right"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Step 3: Team Members Information -->
+                <div id="step-3" class="form-step">
+                    <fieldset>
+                        <legend>Team Members Information</legend>
+                        <div id="teamMembersContainer">
+                            <!-- Team Member 1 (Team Leader) -->
+                            <div class="member-section">
+                                <h3><i class="bi bi-person-fill"></i> Team Leader Details</h3>
+                                <div class="form-group">
+                                    <label for="member1Name">Full Name</label>
+                                    <input type="text" id="member1Name" name="members[0][name]" placeholder="As per college records" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="member1Email">Email ID</label>
+                                    <input type="email" id="member1Email" name="members[0][email]" placeholder="Personal/college email" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="member1Phone">Phone Number</label>
+                                    <input type="tel" id="member1Phone" name="members[0][phone]" placeholder="Active WhatsApp number" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="member1College">College Name</label>
+                                    <input type="text" id="member1College" name="members[0][college]" placeholder="Full official name" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="member1Branch">Branch / Department</label>
+                                    <input type="text" id="member1Branch" name="members[0][branch]" placeholder="E.g. Computer Science">
+                                </div>
+                                <div class="form-group">
+                                    <label for="member1Year">Year of Study</label>
+                                    <select id="member1Year" name="members[0][year]" required>
+                                        <option value="" disabled selected>Select year</option>
+                                        <option value="1st">1st Year</option>
+                                        <option value="2nd">2nd Year</option>
+                                        <option value="3rd">3rd Year</option>
+                                        <option value="Final">Final Year</option>
+                                        <option value="Other">Other</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="member1Id">Upload College ID (Optional)</label>
+                                    <input type="file" id="member1Id" name="members[0][idFile]" accept=".jpg,.jpeg,.png,.pdf">
+                                    <div class="description">Helps us verify student status faster</div>
+                                </div>
+                            </div>
+                            
+                            <!-- Team Member 2-5 will be added dynamically based on team size -->
+                        </div>
+                    </fieldset>
+                    
+                    <div class="form-navigation">
+                        <button type="button" class="prev-btn">
+                            <i class="bi bi-arrow-left"></i> Previous
+                        </button>
+                        <button type="button" class="next-btn">
+                            Next <i class="bi bi-arrow-right"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Step 4: Payment -->
+                <div id="step-4" class="form-step">
+                    <fieldset>
+                        <legend>Payment Details</legend>
+                        <div class="payment-qr">
+                            <h3>Complete Your Payment</h3>
+                            <p>Scan this QR code using any UPI app:</p>
+                            <div id="qrContainer">
+                                <!-- QR code will appear here automatically -->
+                                <p class="qr-fallback">Please select team size to view payment QR code</p>
+                            </div>
+                            <div class="payment-amount" id="paymentAmountDisplay">
+                                Amount: ₹0
+                            </div>
+                            <p class="upi-alternative">Alternatively, send to UPI ID: hackathon@tiic</p>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="transactionId">Transaction ID / UPI Reference</label>
+                            <input type="text" id="transactionId" name="transactionId" placeholder="E.g. TXN12345678 or UPI1234567890" required>
+                            <div class="description">Find this in your payment confirmation message</div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="paymentScreenshot">Upload Payment Screenshot</label>
+                            <input type="file" id="paymentScreenshot" name="paymentScreenshot" accept=".jpg,.jpeg,.png,.pdf" required>
+                            <div class="description">Clear image showing transaction details and amount</div>
+                        </div>
+                    </fieldset>
+                    
+                    <div class="form-navigation">
+                        <button type="button" class="prev-btn">
+                            <i class="bi bi-arrow-left"></i> Previous
+                        </button>
+                        <button type="button" class="next-btn">
+                            Next <i class="bi bi-arrow-right"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Step 5: Confirmation -->
+                <div id="step-5" class="form-step">
+                    <div class="confirmation-section">
+                        <h3><i class="bi bi-shield-check"></i> Final Confirmation</h3>
+                        <div class="form-group">
+                            <div class="checkbox-group">
+                                <input type="checkbox" id="termsAgreement" name="termsAgreement" required>
+                                <label for="termsAgreement">I confirm that all information provided is accurate and I agree to the <a href="#" style="color: var(--primary-color);">terms and conditions</a> of the TIIC Hackathon 2025.</label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="checkbox-group">
+                                <input type="checkbox" id="codeConduct" name="codeConduct" required>
+                                <label for="codeConduct">I agree to abide by the <a href="#" style="color: var(--primary-color);">code of conduct</a> and ethical guidelines of the hackathon.</label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="checkbox-group">
+                                <input type="checkbox" id="dataConsent" name="dataConsent" required>
+                                <label for="dataConsent">I consent to the processing of my personal data for the purposes of this event and related communications.</label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="checkbox-group">
+                                <input type="checkbox" id="originalWork" name="originalWork" required>
+                                <label for="originalWork">I confirm that all work submitted will be original and created during the hackathon period.</label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="checkbox-group">
+                                <input type="checkbox" id="communicationConsent" name="communicationConsent">
+                                <label for="communicationConsent">I would like to receive updates about future TIIC events, workshops, and opportunities (optional).</label>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="submission-message">
+                        <p><strong>Important:</strong> By submitting this form, you confirm your team's participation in the TIIC Hackathon 2025.</p>
+                        <p>All team members must be currently enrolled students. We may request verification documents.</p>
+                        <p>Once submitted, you'll receive a confirmation email with your team ID and further instructions within 24 hours.</p>
+                        <p>For any questions, contact us at <strong>hackathon@tiic.org</strong> or WhatsApp +91 9876543210.</p>
+                    </div>
+                    
+                    <div class="form-navigation">
+                        <button type="button" class="prev-btn">
+                            <i class="bi bi-arrow-left"></i> Previous
+                        </button>
+                        <button type="submit" class="submit-btn">
+                            <i class="bi bi-send"></i> Submit Registration
+                        </button>
+                    </div>
+
+                    <p>Files saved here:
+                        <a id="folderLink" href="#" target="_blank" style="display:none">Open team folder</a>
+                    </p>
+
+
+                </div>
+            </form>
+
+            <!-- Success Screen -->
+            <div id="success-screen" class="success-screen">
+                <i class="bi bi-check-circle-fill"></i>
+                <h2>Registration Successful!</h2>
+                <p>Thank you for registering for the TIIC Hackathon 2025. Your team is now officially in the competition!</p>
+                <div class="submission-message">
+                    <p>👉 Fill this form carefully for your team to be eligible to participate. Let the innovation begin! 🚀</p>
+                    <p>Our team will review your registration and contact you if any additional information is needed.</p>
+                    <p>Keep an eye on your email for further updates about the event schedule and guidelines.</p>
+                </div>
+            </div>
+
+            <div id="status"></div>
+        </div>
+    </div>
+
+    <!-- Loading Overlay -->
+    <div class="loading-overlay">
+        <div class="loading-content">
+            <div class="spinner"></div>
+            <p>Submitting your registration...</p>
+        </div>
+    </div>
+
+    <!-- Put this at the end of your <body> OR as app.js and include it via <script src="app.js"></script> -->
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  // === CONFIG ===
+  const scriptURL = "https://script.google.com/macros/s/AKfycbwUC_v6JRYB8hUmfPLWaAqapvSYXkO_sTcUItjoY8ENvuwUaOVWPeYvUxfYw1uRAIZA3g/exec";
+
+  const qrCodes = {
+    "2": "https://upload.wikimedia.org/wikipedia/commons/xyz/QR_Code_Example.svg",
+    "3": "https://upload.wikimedia.org/wikipedia/commons/xyz/QR_Code_Example.svg",
+    "4": "https://upload.wikimedia.org/wikipedia/commons/xyz/QR_Code_Example.svg",
+    "5": "https://upload.wikimedia.org/wikipedia/commons/xyz/QR_Code_Example.svg",
+    };
+
+  const paymentAmounts = { "2": 400, "3": 600, "4": 800, "5": 1000 };
+
+  // === DOM ===
+  const form = document.getElementById("hackathonForm");
+  const steps = document.querySelectorAll(".form-step");
+  const stepIcons = document.querySelectorAll(".step-icon");
+  const teamSizeSelect = document.getElementById("teamSize");
+  const teamMembersContainer = document.getElementById("teamMembersContainer");
+  const qrContainer = document.getElementById("qrContainer");
+  const paymentAmountDisplay = document.getElementById("paymentAmountDisplay");
+  const loadingElement = document.querySelector(".loading-overlay");
+  const statusElement = document.getElementById("status");
+  const successScreen = document.getElementById("success-screen");
+  const folderLink = document.getElementById("folderLink");
+  let currentStep = 1;
+
+  // === INIT ===
+  initForm();
+  showStep(1);
+
+  // === SUBMIT ===
+  form.addEventListener("submit", async function (e) {
+    e.preventDefault();
+
+    if (!validateFinalStep()) return;
+
+    loadingElement.style.display = "flex";
+    const submitBtn = document.querySelector(".submit-btn");
+    submitBtn.disabled = true;
+    statusElement.textContent = "";
+    statusElement.className = "";
+
+    try {
+      const payload = await preparePayload();
+      console.log("Sending payload:", JSON.stringify(payload)); // debug
+      const response = await submitForm(payload);
+      console.log("Server response:", response); // debug
+
+      if (response.result === "success") {
+        showSuccessScreen(response.folderUrl);
+      } else {
+        throw new Error(response.message || "Submission failed");
+      }
+    } catch (error) {
+      console.error("Submission error:", error);
+      showError(error.message || "Error submitting form. Please try again.");
+    } finally {
+      loadingElement.style.display = "none";
+      submitBtn.disabled = false;
+    }
+  });
+
+  // === FUNCTIONS ===
+
+  function initForm() {
+    // Team size → members & QR
+    teamSizeSelect.addEventListener("change", function () {
+      const size = parseInt(this.value);
+      updateTeamMembers(size);
+      updatePaymentQR(this.value);
+    });
+
+    // Step nav
+    initStepNavigation();
+
+    // Member templates cache
+    window.memberTemplates = {};
+    for (let i = 2; i <= 5; i++) {
+      memberTemplates[i] = createMemberTemplate(i);
+    }
+
+    // Sync leader to member 1
+    document.getElementById("teamLeaderName").addEventListener("input", syncLeaderFields);
+    document.getElementById("teamLeaderEmail").addEventListener("input", syncLeaderFields);
+    document.getElementById("teamLeaderPhone").addEventListener("input", syncLeaderFields);
+  }
+
+  function syncLeaderFields() {
+    document.getElementById("member1Name").value = document.getElementById("teamLeaderName").value;
+    document.getElementById("member1Email").value = document.getElementById("teamLeaderEmail").value;
+    document.getElementById("member1Phone").value = document.getElementById("teamLeaderPhone").value;
+  }
+
+  function initStepNavigation() {
+    stepIcons.forEach((icon) => {
+      icon.addEventListener("click", function () {
+        const step = parseInt(this.getAttribute("data-step"));
+        if (step <= currentStep) goToStep(step);
+      });
+    });
+
+    document.querySelectorAll(".next-btn").forEach((btn) => {
+      btn.addEventListener("click", () => goToStep(currentStep + 1));
+    });
+
+    document.querySelectorAll(".prev-btn").forEach((btn) => {
+      btn.addEventListener("click", () => goToStep(currentStep - 1));
+    });
+  }
+
+  function goToStep(step) {
+    if (step < 1 || step > steps.length) return;
+    if (step > currentStep && !validateStep(currentStep)) return;
+    showStep(step);
+  }
+
+  function showStep(step) {
+    steps.forEach((s, i) => s.classList.toggle("active", i + 1 === step));
+    stepIcons.forEach((icon) => {
+      const iconStep = parseInt(icon.getAttribute("data-step"));
+      icon.classList.toggle("active", iconStep === step);
+      icon.classList.toggle("completed", iconStep < step);
+    });
+    currentStep = step;
+  }
+
+  function validateStep(step) {
+    const currentFormStep = document.getElementById(`step-${step}`);
+    const inputs = currentFormStep.querySelectorAll("input, select");
+    let isValid = true;
+
+    inputs.forEach((input) => {
+      if (input.required && !String(input.value || "").trim()) {
+        input.reportValidity();
+        isValid = false;
+      }
+
+      if (input.type === "email" && input.value && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(input.value)) {
+        input.setCustomValidity("Please enter a valid email address");
+        input.reportValidity();
+        isValid = false;
+      } else if (input.type === "email") {
+        input.setCustomValidity("");
+      }
+
+      if (input.type === "file" && input.required && !input.files[0]) {
+        alert(`Please upload required file: ${input.labels[0]?.textContent || input.id}`);
+        isValid = false;
+      }
+    });
+
+    if (step === 3) {
+      const teamSize = parseInt(teamSizeSelect.value);
+      const memberSections = document.querySelectorAll(".member-section");
+      if (memberSections.length !== teamSize) {
+        alert("Please ensure the number of team members matches the selected team size.");
+        isValid = false;
+      }
+    }
+
+    return isValid;
+  }
+
+  function updateTeamMembers(teamSize) {
+    // remove extras
+    for (let i = 2; i <= 5; i++) {
+      const section = document.getElementById(`member${i}Section`);
+      if (section) section.remove();
+    }
+    // add based on size
+    for (let i = 2; i <= teamSize; i++) {
+      teamMembersContainer.insertAdjacentHTML("beforeend", memberTemplates[i]);
+    }
+  }
+
+  function createMemberTemplate(index) {
+    return `
+      <div class="member-section" id="member${index}Section">
+        <h3><i class="bi bi-person"></i> Team Member ${index} Details</h3>
+        <div class="form-group">
+          <label for="member${index}Name">Full Name</label>
+          <input type="text" id="member${index}Name" name="members[${index - 1}][name]" placeholder="As per college records" required>
+        </div>
+        <div class="form-group">
+          <label for="member${index}Email">Email ID</label>
+          <input type="email" id="member${index}Email" name="members[${index - 1}][email]" placeholder="Personal/college email" required>
+        </div>
+        <div class="form-group">
+          <label for="member${index}Phone">Phone Number</label>
+          <input type="tel" id="member${index}Phone" name="members[${index - 1}][phone]" placeholder="Active WhatsApp number" required>
+        </div>
+        <div class="form-group">
+          <label for="member${index}College">College Name</label>
+          <input type="text" id="member${index}College" name="members[${index - 1}][college]" placeholder="Full official name" required>
+        </div>
+        <div class="form-group">
+          <label for="member${index}Branch">Branch / Department</label>
+          <input type="text" id="member${index}Branch" name="members[${index - 1}][branch]" placeholder="E.g. Computer Science">
+        </div>
+        <div class="form-group">
+          <label for="member${index}Year">Year of Study</label>
+          <select id="member${index}Year" name="members[${index - 1}][year]" required>
+            <option value="" disabled selected>Select year</option>
+            <option value="1st">1st Year</option>
+            <option value="2nd">2nd Year</option>
+            <option value="3rd">3rd Year</option>
+            <option value="Final">Final Year</option>
+            <option value="Other">Other</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="member${index}Id">Upload College ID (Optional)</label>
+          <input type="file" id="member${index}Id" name="members[${index - 1}][idFile]" accept=".jpg,.jpeg,.png,.pdf">
+          <div class="description">Helps us verify student status faster</div>
+        </div>
+      </div>
+    `;
+  }
+
+  function updatePaymentQR(teamSize) {
+    if (qrCodes[teamSize]) {
+      qrContainer.innerHTML = `<img src="${qrCodes[teamSize]}" alt="Payment QR Code for ₹${paymentAmounts[teamSize]}" class="qr-image">`;
+      paymentAmountDisplay.textContent = `Amount: ₹${paymentAmounts[teamSize]}`;
+    } else {
+      qrContainer.innerHTML = `<p class="qr-fallback">Please select team size to view payment QR code</p>`;
+      paymentAmountDisplay.textContent = `Amount: ₹0`;
+    }
+  }
+
+  async function preparePayload() {
+    const teamSize = parseInt(teamSizeSelect.value);
+    const members = [];
+    const collegeIdFiles = [];
+
+    // Leader email basic validation
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(document.getElementById("teamLeaderEmail").value)) {
+      throw new Error("Invalid team leader email address");
+    }
+
+    // Gather members (leader is member 1)
+    for (let i = 1; i <= teamSize; i++) {
+      const memberData = {
+        name: document.getElementById(`member${i}Name`).value,
+        email: document.getElementById(`member${i}Email`).value,
+        phone: document.getElementById(`member${i}Phone`).value,
+        college: document.getElementById(`member${i}College`).value,
+        branch: document.getElementById(`member${i}Branch`).value || "N/A",
+        year: document.getElementById(`member${i}Year`).value,
+      };
+
+      if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(memberData.email)) {
+        throw new Error(`Invalid email for member ${i}`);
+      }
+
+      if (!memberData.name || !memberData.email || !memberData.phone || !memberData.college || !memberData.year) {
+        throw new Error(`Missing required fields for member ${i}`);
+      }
+
+      members.push(memberData);
+
+      const idFileInput = document.getElementById(`member${i}Id`);
+      if (idFileInput?.files[0]) {
+        collegeIdFiles.push({
+          data: await fileToBase64(idFileInput.files[0]),
+          mimeType: idFileInput.files[0].type,
+        });
+      }
+    }
+
+    // Payment screenshot
+    let paymentScreenshot = null;
+    const paymentFileInput = document.getElementById("paymentScreenshot");
+    if (paymentFileInput.files[0]) {
+      paymentScreenshot = {
+        data: await fileToBase64(paymentFileInput.files[0]),
+        mimeType: paymentFileInput.files[0].type,
+      };
+    } else {
+      throw new Error("Payment screenshot is required");
+    }
+
+    return {
+      data: {
+        teamName: form.teamName.value,
+        teamSize: teamSize,
+        teamLeader: {
+          name: form.teamLeaderName.value,
+          email: form.teamLeaderEmail.value,
+          phone: form.teamLeaderPhone.value,
+        },
+        members: members,
+        payment: {
+          amount: paymentAmounts[teamSize],
+          transactionId: form.transactionId.value,
+          screenshot: paymentScreenshot,
+        },
+        collegeIds: collegeIdFiles,
+        termsAgreed: document.getElementById("termsAgreement").checked,
+        codeConductAgreed: document.getElementById("codeConduct").checked,
+        dataConsent: document.getElementById("dataConsent").checked,
+        originalWork: document.getElementById("originalWork").checked,
+        communicationConsent: document.getElementById("communicationConsent").checked,
+      },
+    };
+  }
+
+  // === CORS-SAFE submit (simple request: no preflight) ===
+  async function submitForm(payload) {
+    try {
+      const response = await fetch(scriptURL, {
+        method: "POST",
+        // Use a "simple" Content-Type to avoid CORS preflight
+        headers: {
+          "Content-Type": "text/plain;charset=utf-8",
+          // DO NOT set "Accept" here; keeping it simple avoids preflight
+        },
+        body: JSON.stringify(payload),
+      });
+
+      // GAS often responds as text; parse manually
+      const text = await response.text();
+      if (!response.ok) {
+        throw new Error(`HTTP ${response.status}: ${text}`);
+      }
+      return JSON.parse(text);
+    } catch (error) {
+      throw new Error(`Fetch failed: ${error.message}`);
+    }
+  }
+
+  function validateFinalStep() {
+    const checkboxes = document.querySelectorAll('#step-5 input[type="checkbox"][required]');
+    let allChecked = true;
+
+    checkboxes.forEach((checkbox) => {
+      if (!checkbox.checked) {
+        allChecked = false;
+        checkbox.reportValidity();
+      }
+    });
+
+    return allChecked;
+  }
+
+  async function fileToBase64(file) {
+    return new Promise((resolve, reject) => {
+      const reader = new FileReader();
+      reader.readAsDataURL(file);
+      reader.onload = () => resolve(reader.result.split(",")[1]);
+      reader.onerror = (error) => reject(error);
+    });
+  }
+
+  function showSuccessScreen(folderUrl) {
+    form.style.display = "none";
+    successScreen.classList.add("active");
+    document.querySelector(".step-navigation").style.display = "none";
+
+    if (folderUrl) {
+      folderLink.href = folderUrl;
+      folderLink.style.display = "inline";
+    }
+  }
+
+  function showError(message) {
+    statusElement.textContent = message;
+    statusElement.className = "error-message";
+  }
+});
+</script>
+
+    
+</body>
+</html>
